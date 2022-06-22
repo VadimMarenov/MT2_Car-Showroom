@@ -1,4 +1,4 @@
-public class Manufacturer extends Thread{
+public class Manufacturer extends Thread {
     Dealer dealer;
 
     public Manufacturer(Dealer dealer, String name) {
