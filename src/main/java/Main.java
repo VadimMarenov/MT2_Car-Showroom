@@ -3,8 +3,8 @@ public class Main {
     public static void main(String[] args) {
         Dealer dealer = new Dealer();
         for (int i = 1; i <= COUNT_OF_BUYERS; i++) {
-            new Buyer(dealer, "Покупатель " + i).start();
+            new Buyer(dealer, "Buyer " + i).start();
         }
-        new Manufacturer(dealer, "Производитель TOYOTA").start();
+        new Manufacturer(dealer, "Manufacturer TOYOTA").start();
     }
 }

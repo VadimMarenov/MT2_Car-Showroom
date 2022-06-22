@@ -10,13 +10,13 @@ public class Dealer {
 
     public synchronized void sellCar() {
         try {
-            System.out.println(Thread.currentThread().getName() + " зашел в автосалон");
-            if (cars.size() == 0) {
-                System.out.println("Машин нет");
+            System.out.println(Thread.currentThread().getName() + " went to a car dealership");
+            while (cars.size() == 0) {
+                System.out.println("There aren't any car");
                     wait();
 
                 Thread.sleep(PURCHASE_TIME);
-                System.out.println(Thread.currentThread().getName() + " уехал на новеньком авто");
+                System.out.println(Thread.currentThread().getName() + " left in a brand new car");
                 cars.remove(0);
             }
         } catch (InterruptedException e) {
@@ -29,7 +29,7 @@ public class Dealer {
             try {
                 Thread.sleep(BUILD_TIME);
                 cars.add(new Car());
-                System.out.print(Thread.currentThread().getName() + " выпустил автомобиль");
+                System.out.print(Thread.currentThread().getName() + " produced a new car");
                 synchronized (this) {
                     notify();
                 }
